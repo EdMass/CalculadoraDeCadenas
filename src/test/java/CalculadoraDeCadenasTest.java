@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculadoraDeCadenasTest {
 
@@ -32,6 +33,20 @@ class CalculadoraDeCadenasTest {
         int esperado2 = 6;
         int obtenido2 = calculadoraDeCadenas.separarYSumar("1#2#3","#");
         assertEquals(esperado2, obtenido2);
+    }
+
+    @Test
+    void exceptionNegativeTesting() {
+        Exception thrown = assertThrows(Exception.class, () ->
+                calculadoraDeCadenas.validacionCadena("-1"));
+        assertEquals("El valor es negativo y no aplica", thrown.getMessage());
+    }
+
+    @Test
+    void exceptionThousandTesting() {
+        Exception thrown = assertThrows(Exception.class, () ->
+                calculadoraDeCadenas.validacionCadena("1001"));
+        assertEquals("El valor es mayor a mil y no aplica", thrown.getMessage());
     }
 
 }

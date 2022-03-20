@@ -4,7 +4,7 @@ import java.util.List;
 public class CalculadoraDeCadenas {
 
     private String[] listaStrings = null;
-    private String delimitador;
+
 
     public int validacionCadena(String cadena) throws Exception{
         if(cadena.length() == 0){
@@ -30,7 +30,6 @@ public class CalculadoraDeCadenas {
     public int separarYSumar(String cadena, String delimitador) throws Exception{
         cadena = cadena.replace(" ","");
         delimitador = delimitador.replace(" ","");
-        this.delimitador = delimitador;
         int suma = 0;
         String deli =""+cadena.charAt(1);
         if(deli.equals(delimitador)){
@@ -43,15 +42,6 @@ public class CalculadoraDeCadenas {
 
         } else{
             throw new IllegalArgumentException("El delimitador debe ser el mismo");
-        }
-    }
-
-    public void validacionNegativoYMayorAMil(String cadena) throws Exception{
-        int valor= Integer.parseInt(cadena);
-        if(valor < 0){
-            throw new Exception("El valor es negativo y no aplica");
-        }if(valor > 1000){
-            throw new Exception("El valor es mayor a mil y no aplica");
         }
     }
 
