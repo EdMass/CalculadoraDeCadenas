@@ -6,9 +6,13 @@ public class CalculadoraDeCadenas {
     private String[] listaStrings = null;
     private String delimitador;
 
-    public int cadenaVacia (String cadena){
+    public int validacionCadena(String cadena) throws Exception{
         if(cadena.length() == 0){
             return 0;
+        }if(Integer.parseInt(cadena) < 0){
+            throw new Exception("El valor es negativo y no aplica");
+        }if(Integer.parseInt(cadena) > 1000){
+            throw new Exception("El valor es mayor a mil y no aplica");
         }else {
             return Integer.parseInt(cadena);
         }
@@ -40,14 +44,22 @@ public class CalculadoraDeCadenas {
         } else{
             throw new IllegalArgumentException("El delimitador debe ser el mismo");
         }
-
     }
+
+    public void validacionNegativoYMayorAMil(String cadena) throws Exception{
+        int valor= Integer.parseInt(cadena);
+        if(valor < 0){
+            throw new Exception("El valor es negativo y no aplica");
+        }if(valor > 1000){
+            throw new Exception("El valor es mayor a mil y no aplica");
+        }
+    }
+
 
     public static void main(String[] args) throws Exception {
         CalculadoraDeCadenas calculadoraDeCadenas = new CalculadoraDeCadenas();
 
         System.out.println(calculadoraDeCadenas.separarYSumar("1 \n2\n3"," \n"));
     }
-
 
 }

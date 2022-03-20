@@ -9,7 +9,7 @@ class CalculadoraDeCadenasTest {
     @Test
     public void cadenaVaciaTest() throws Exception{
         int esperado = 0;
-        int obtenido = calculadoraDeCadenas.cadenaVacia("");
+        int obtenido = calculadoraDeCadenas.validacionCadena("");
         assertEquals(esperado, obtenido);
     }
 
