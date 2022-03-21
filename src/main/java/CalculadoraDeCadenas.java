@@ -46,11 +46,4 @@ public class CalculadoraDeCadenas {
         }
     }
 
-
-    public static void main(String[] args) throws Exception {
-        CalculadoraDeCadenas calculadoraDeCadenas = new CalculadoraDeCadenas();
-
-        System.out.println(calculadoraDeCadenas.separarYSumar("1 ==2== 3","== "));
-    }
-
 }
