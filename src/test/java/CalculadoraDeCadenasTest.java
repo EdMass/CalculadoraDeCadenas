@@ -36,6 +36,13 @@ class CalculadoraDeCadenasTest {
     }
 
     @Test
+    public void separarYSumarVariosDelimitadoresTest() throws Exception{
+        int esperado2 = 6;
+        int obtenido2 = calculadoraDeCadenas.separarYSumar("1===2===3","===");
+        assertEquals(esperado2, obtenido2);
+    }
+
+    @Test
     void exceptionNegativeTesting() {
         Exception thrown = assertThrows(Exception.class, () ->
                 calculadoraDeCadenas.validacionCadena("-1"));

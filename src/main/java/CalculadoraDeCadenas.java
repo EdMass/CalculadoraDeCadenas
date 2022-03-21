@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CalculadoraDeCadenas {
 
@@ -30,9 +30,10 @@ public class CalculadoraDeCadenas {
     public int separarYSumar(String cadena, String delimitador) throws Exception{
         cadena = cadena.replace(" ","");
         delimitador = delimitador.replace(" ","");
+        Pattern pat = Pattern.compile(".*"+delimitador+".*");
+        Matcher mat = pat.matcher(cadena);
         int suma = 0;
-        String deli =""+cadena.charAt(1);
-        if(deli.equals(delimitador)){
+        if(mat.matches()){
             String[] listaModificada = null;
             listaModificada = cadena.split(delimitador);
             for (String elemento:listaModificada) {
@@ -49,7 +50,7 @@ public class CalculadoraDeCadenas {
     public static void main(String[] args) throws Exception {
         CalculadoraDeCadenas calculadoraDeCadenas = new CalculadoraDeCadenas();
 
-        System.out.println(calculadoraDeCadenas.separarYSumar("1 \n2\n3"," \n"));
+        System.out.println(calculadoraDeCadenas.separarYSumar("1 ==2== 3","== "));
     }
 
 }
